@@ -18,6 +18,8 @@ class ActividadesPositivas : AppCompatActivity() {
     private lateinit var binding: ActivityActividadesPositivasBinding
     private var increase: Int = 0
     private var decrease: Int = 0
+    private var totalPoints: Int = 0
+    private var money: Float =0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,22 +64,23 @@ class ActividadesPositivas : AppCompatActivity() {
 
     }
 
+    // 0.025 by point
     fun onItemNegativeSelected(elementolista: NegativeAction) {
-        decrease -= elementolista.valor
-        Toast.makeText(
-            this,
-            "${this.resources.getString(elementolista.stringResourceId)}",
-            Toast.LENGTH_SHORT
-        ).show()
+        decrease += elementolista.valor
+        totalPoints -= elementolista.valor
+        money = (totalPoints*0.025f)
+
+        binding.valorEnDinero.text = "S/. $money"
+        binding.puntosTotalGanados.text = "$totalPoints"
         binding.puntosPerdidos.text = "$decrease"
     }
     fun onItemPositiveSelected(elementolista: PositiveAction) {
         increase += elementolista.valor
-        Toast.makeText(
-            this,
-            "${this.resources.getString(elementolista.stringResourceId)}",
-            Toast.LENGTH_SHORT
-        ).show()
+        totalPoints += elementolista.valor
+        money = (totalPoints*0.025f)
+
+        binding.valorEnDinero.text = "S/. $money"
+        binding.puntosTotalGanados.text = "$totalPoints"
         binding.puntosGanados.text = "$increase"
     }
 }
