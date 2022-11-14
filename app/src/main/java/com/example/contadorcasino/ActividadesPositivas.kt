@@ -3,6 +3,7 @@ package com.example.contadorcasino
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import com.example.contadorcasino.adapter.ItemAdapter
 import com.example.contadorcasino.adapter.NegativeAdapter
@@ -31,8 +32,15 @@ class ActividadesPositivas : AppCompatActivity() {
 
 
         val myIntent: String? = intent.getStringExtra("ok")
-        binding.txtOk.text = myIntent
+        binding.nameUser.text = myIntent
 
+        val photo = when(myIntent) {
+            "Andrew" -> R.drawable.andrew
+            "Matthew" -> R.drawable.matthew
+            "Dad" -> R.drawable.dad
+            else -> R.drawable.mom
+        }
+        binding.photoUser.setImageResource(photo)
 
         recyclerViewPositive.adapter = PositiveAdapter(
             context = this,
