@@ -1,11 +1,8 @@
 package com.example.contadorcasino.adapter
 
 import android.content.Context
-import android.service.autofill.Dataset
-import android.service.autofill.OnClickAction
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -18,9 +15,8 @@ class NegativeAdapter(
     private val dataset: List<NegativeAction>
 ) : RecyclerView.Adapter<NegativeAdapter.NegativeViewHolder>(){
 
-    class NegativeViewHolder(private val view: View): RecyclerView.ViewHolder(view){
+    class NegativeViewHolder(view: View): RecyclerView.ViewHolder(view){
         private val txtStringNegative: TextView = view.findViewById(R.id.textStringPositive)
-
         fun render(
             context: Context,
             element: NegativeAction,

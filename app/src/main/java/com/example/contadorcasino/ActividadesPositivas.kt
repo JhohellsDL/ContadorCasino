@@ -1,5 +1,6 @@
 package com.example.contadorcasino
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -14,6 +15,8 @@ import com.example.contadorcasino.model.PositiveAction
 class ActividadesPositivas : AppCompatActivity() {
 
     private lateinit var binding: ActivityActividadesPositivasBinding
+    private var increase: Int = 0
+    private var decrease: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +27,12 @@ class ActividadesPositivas : AppCompatActivity() {
         val myNegativeDataset = Datasource().loadNegativeActions()
         val recyclerViewPositive = binding.recyclerViewPositive
         val recyclerViewNegative = binding.recyclerViewNegative
+
+
+
+        val myIntent: String? = intent.getStringExtra("ok")
+        binding.txtOk.text = myIntent
+
 
         recyclerViewPositive.adapter = PositiveAdapter(
             context = this,
@@ -46,17 +55,21 @@ class ActividadesPositivas : AppCompatActivity() {
     }
 
     fun onItemNegativeSelected(elementolista: NegativeAction) {
+        decrease -= elementolista.valor
         Toast.makeText(
             this,
             "${this.resources.getString(elementolista.stringResourceId)}",
             Toast.LENGTH_SHORT
         ).show()
+        binding.puntosPerdidos.text = "$decrease"
     }
     fun onItemPositiveSelected(elementolista: PositiveAction) {
+        increase += elementolista.valor
         Toast.makeText(
             this,
             "${this.resources.getString(elementolista.stringResourceId)}",
             Toast.LENGTH_SHORT
         ).show()
+        binding.puntosGanados.text = "$increase"
     }
 }
