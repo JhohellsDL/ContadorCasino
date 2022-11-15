@@ -15,26 +15,11 @@ import com.example.contadorcasino.model.Persona
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    val pickMedia = registerForActivityResult(PickVisualMedia()) {
-        if(it != null){
-            imgPrueba.setImageURI(it)
-        }else{
 
-        }
-    }
-    lateinit var imgPrueba : ImageView
-    lateinit var btnImage : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        btnImage = findViewById(R.id.btnImagen)
-        imgPrueba = findViewById(R.id.imgPrueba)
-        btnImage.setOnClickListener {
-            pickMedia.launch(PickVisualMediaRequest(PickVisualMedia.ImageOnly))
-        }
-
 
         val myDataset = Datasource().loadPersonas() //Datasource().loadPersonas()
         //val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
