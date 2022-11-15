@@ -11,7 +11,7 @@ import com.example.contadorcasino.adapter.ItemAdapter
 import com.example.contadorcasino.data.Datasource
 import com.example.contadorcasino.databinding.ActivityMainBinding
 import com.example.contadorcasino.model.Persona
-
+// sin boton a galeria
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
