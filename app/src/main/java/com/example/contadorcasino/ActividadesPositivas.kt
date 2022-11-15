@@ -31,8 +31,6 @@ class ActividadesPositivas : AppCompatActivity() {
         val recyclerViewPositive = binding.recyclerViewPositive
         val recyclerViewNegative = binding.recyclerViewNegative
 
-
-
         val myIntent: String? = intent.getStringExtra("ok")
         binding.nameUser.text = myIntent
 

@@ -157,15 +157,19 @@ class Datasource {
     fun loadPersonas(): List<Persona> {
         return listOf<Persona>(
             Persona(
+                photoResourceId = R.drawable.andrew,
                 nombre = "Andrew",
                 puntos = 10
             ), Persona(
+                photoResourceId = R.drawable.matthew,
                 nombre = "Matthew",
                 puntos = 10
             ), Persona(
+                photoResourceId = R.drawable.mom,
                 nombre = "Mom",
                 puntos = 10
             ), Persona(
+                photoResourceId = R.drawable.dad,
                 nombre = "Dad",
                 puntos = 10
             )

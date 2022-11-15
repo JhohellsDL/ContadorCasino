@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.adapter = ItemAdapter(this, onClickListener = {pasarDatos(it)}, myDataset)
         binding.recyclerView.setHasFixedSize(true)
 
-        binding.next.setOnClickListener { goToActividades() }
+        //binding.next.setOnClickListener { goToActividades() }
     }
 
     fun goToActividades(){

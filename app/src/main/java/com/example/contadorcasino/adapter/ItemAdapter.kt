@@ -1,9 +1,11 @@
 package com.example.contadorcasino.adapter
 
 import android.content.Context
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contadorcasino.R
@@ -20,6 +22,7 @@ class ItemAdapter(
     RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+        val photo: ImageView = view.findViewById(R.id.image_item)
         val textNombre: TextView = view.findViewById(R.id.nombre_item)
         val textPuntos: TextView = view.findViewById(R.id.item_puntos)
         fun render(
@@ -27,6 +30,7 @@ class ItemAdapter(
             element: Persona,
             onClickListener: (Persona) -> Unit
         ){
+            photo.setImageResource(element.photoResourceId)
             textNombre.text = element.nombre
             itemView.setOnClickListener { onClickListener(element) }
         }
