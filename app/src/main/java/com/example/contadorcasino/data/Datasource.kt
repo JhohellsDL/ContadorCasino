@@ -77,6 +77,16 @@ class Datasource {
                 stringResourceId = R.string.positiveAction14,
                 imageResource = R.drawable.user,
                 valor = 10
+            ),
+            PositiveAction(
+                stringResourceId = R.string.positiveAction15,
+                imageResource = R.drawable.user,
+                valor = 5
+            ),
+            PositiveAction(
+                stringResourceId = R.string.positiveAction16,
+                imageResource = R.drawable.user,
+                valor = 5
             )
         )
     }
@@ -151,6 +161,16 @@ class Datasource {
                 stringResourceId = R.string.negativeAction14,
                 imageResource = R.drawable.user,
                 valor = 15
+            ),
+            NegativeAction(
+                stringResourceId = R.string.negativeAction15,
+                imageResource = R.drawable.user,
+                valor = 10
+            ),
+            NegativeAction(
+                stringResourceId = R.string.negativeAction16,
+                imageResource = R.drawable.user,
+                valor = 10
             )
         )
     }

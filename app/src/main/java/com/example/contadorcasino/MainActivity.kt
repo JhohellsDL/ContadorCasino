@@ -3,6 +3,10 @@ package com.example.contadorcasino
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts.*
 import com.example.contadorcasino.adapter.ItemAdapter
 import com.example.contadorcasino.data.Datasource
 import com.example.contadorcasino.databinding.ActivityMainBinding
@@ -11,12 +15,25 @@ import com.example.contadorcasino.model.Persona
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    val pickMedia = registerForActivityResult(PickVisualMedia()) {
+        if(it != null){
+            imgPrueba.setImageURI(it)
+        }else{
 
-
+        }
+    }
+    lateinit var imgPrueba : ImageView
+    lateinit var btnImage : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        btnImage = findViewById(R.id.btnImagen)
+        imgPrueba = findViewById(R.id.imgPrueba)
+        btnImage.setOnClickListener {
+            pickMedia.launch(PickVisualMediaRequest(PickVisualMedia.ImageOnly))
+        }
 
 
         val myDataset = Datasource().loadPersonas() //Datasource().loadPersonas()

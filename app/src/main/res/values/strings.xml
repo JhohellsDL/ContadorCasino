@@ -16,6 +16,8 @@
     <string name="positiveAction12">Ayudar</string>
     <string name="positiveAction13">Cocinar</string>
     <string name="positiveAction14">Jugar con Riley</string>
+    <string name="positiveAction15">Lavarse los pies</string>
+    <string name="positiveAction16">Llegar temprano</string>
 
     <string name="negativeAction1">Cara fea</string>
     <string name="negativeAction2">Ser malo</string>
@@ -31,5 +33,7 @@
     <string name="negativeAction12">Ser descuidado</string>
     <string name="negativeAction13">Hablar groserias</string>
     <string name="negativeAction14">Hablar feo</string>
+    <string name="negativeAction15">No lavarse los pies</string>
+    <string name="negativeAction16">No llegar temprano</string>
 
 </resources>
