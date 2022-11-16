@@ -8,11 +8,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.contadorcasino.GuardarDatos.Companion.prefs
 import com.example.contadorcasino.R
 import com.example.contadorcasino.databinding.ActivityActividadesPositivasBinding
 import com.example.contadorcasino.model.NegativeAction
 import com.example.contadorcasino.model.Persona
 import com.example.contadorcasino.model.PositiveAction
+import org.w3c.dom.Text
 
 class ItemAdapter(
     private val context: Context,
@@ -24,7 +26,14 @@ class ItemAdapter(
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val photo: ImageView = view.findViewById(R.id.image_item)
         val textNombre: TextView = view.findViewById(R.id.nombre_item)
-        val textPuntos: TextView = view.findViewById(R.id.item_puntos)
+        val textFecha: TextView = view.findViewById(R.id.text_fecha)
+        val textPuntosPremio: TextView = view.findViewById(R.id.puntosPremio)
+        val textPuntosCastigo: TextView = view.findViewById(R.id.puntosCastigo)
+        val textPuntosJuego: TextView = view.findViewById(R.id.puntosJuego)
+        val textPuntosAyer: TextView = view.findViewById(R.id.puntosAyer)
+        val textPuntosHoy: TextView = view.findViewById(R.id.puntosHoy)
+        val textDinero: TextView = view.findViewById(R.id.dinero)
+
         fun render(
             context: Context,
             element: Persona,
@@ -32,6 +41,13 @@ class ItemAdapter(
         ){
             photo.setImageResource(element.photoResourceId)
             textNombre.text = element.nombre
+            textFecha.text = element.fecha
+            textPuntosPremio.text = element.puntosPremio.toString()
+            textPuntosCastigo.text = element.puntosCastigo.toString()
+            textPuntosJuego.text = element.puntosJuego.toString()
+            textPuntosAyer.text = element.puntosAyer.toString()
+            textPuntosHoy.text = element.puntosHoy.toString()
+            textDinero.text = element.dinero.toString()
             itemView.setOnClickListener { onClickListener(element) }
         }
     }

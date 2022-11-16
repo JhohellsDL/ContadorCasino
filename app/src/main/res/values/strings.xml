@@ -35,5 +35,7 @@
     <string name="negativeAction14">Hablar feo</string>
     <string name="negativeAction15">No lavarse los pies</string>
     <string name="negativeAction16">No llegar temprano</string>
+    <string name="dollar_simbol">S/. </string>
+    <string name="monto_inicial_cero">0</string>
 
 </resources>

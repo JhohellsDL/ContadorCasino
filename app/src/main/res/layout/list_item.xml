@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/transparent"
-    android:backgroundTint="@color/transparent"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -62,7 +61,7 @@
                 app:layout_constraintTop_toBottomOf="@id/nombre_item"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/item_puntos_anterior"
+                    android:id="@+id/puntosAyer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -71,7 +70,7 @@
                     android:layout_weight="1"
                     android:text="Ayer 135 pts"/>
                 <TextView
-                    android:id="@+id/item_puntos"
+                    android:id="@+id/puntosHoy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -84,7 +83,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/item_puntos_ganados"
+                android:id="@+id/dinero"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
@@ -124,7 +123,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/item_mas_puntos_cards"
+                        android:id="@+id/puntosPremio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -153,7 +152,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/item_menos_puntos_card"
+                        android:id="@+id/puntosCastigo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -182,7 +181,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/item_mas_puntos_juego"
+                        android:id="@+id/puntosJuego"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
