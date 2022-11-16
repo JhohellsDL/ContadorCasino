@@ -206,7 +206,7 @@ class Datasource {
         val a = prefs.getAndrew()
         Log.d("dato","a: $a")
 
-        val andrewString: String = "Andrew,10/10/2022,180,100,90,200,222,5.6"
+        val andrewString: String =  a //"Andrew,10/10/2022,180,100,90,200,222,5.6"
         val andrewPhoto: Int = R.drawable.andrew
 
         val matthewString: String = "Matthew,10/10/2022,180,100,90,200,222,5.6"

@@ -3,6 +3,7 @@ package com.example.contadorcasino
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.contadorcasino.GuardarDatos.Companion.prefs
 import com.example.contadorcasino.adapter.NegativeAdapter
 import com.example.contadorcasino.adapter.PositiveAdapter
@@ -68,22 +69,7 @@ class ActividadesPositivas : AppCompatActivity() {
         binding.photoUser.setImageResource(photo)
 
         binding.btnXd.setOnClickListener {
-            dineroGanado = binding.valorEnDinero.text.toString().toFloat()
-            totalPuntos = binding.puntosTotalGanados.text.toString().toInt()
-            puntosGanados = binding.puntosGanados.text.toString().toInt()
-            puntosPerdidos = binding.puntosPerdidos.text.toString().toInt()
-
-            // Andrew,10/10/2022,180,100,90,200,222,5.6
-            cadenaDeLaVista = "$nameUser,10/10/2022,$puntosGanados,$puntosPerdidos,0,0,$totalPuntos,$dineroGanado"
-            binding.textMuestra.text = cadenaDeShared
-
-            val personaDeLaVista: Persona = stringToPersona(cad = cadenaDeLaVista, photo)
-            val personaDeShared: Persona = stringToPersona(cadenaDeShared,photo)
-
-            cadFinal = sumarPersonas(personaDeLaVista, personaDeShared)
-            val personaFinal: Persona = stringToPersona(cadFinal,photo)
-
-            binding.textMuestra.text = cadFinal
+            goToActividades()
         }
 
         recyclerViewPositive.adapter = PositiveAdapter(
@@ -104,9 +90,30 @@ class ActividadesPositivas : AppCompatActivity() {
         )
 
         binding.btnGuardarDatos.setOnClickListener {
-            goToActividades()
-        }
+            dineroGanado = binding.valorEnDinero.text.toString().toFloat()
+            totalPuntos = binding.puntosTotalGanados.text.toString().toInt()
+            puntosGanados = binding.puntosGanados.text.toString().toInt()
+            puntosPerdidos = binding.puntosPerdidos.text.toString().toInt()
 
+            // Andrew,10/10/2022,180,100,90,200,222,5.6
+            cadenaDeLaVista = "$nameUser,10/10/2022,$puntosGanados,$puntosPerdidos,0,0,$totalPuntos,$dineroGanado"
+
+            val personaDeLaVista: Persona = stringToPersona(cad = cadenaDeLaVista, photo)
+            val personaDeShared: Persona = stringToPersona(cadenaDeShared,photo)
+
+            cadFinal = sumarPersonas(personaDeLaVista, personaDeShared)
+            val personaFinal: Persona = stringToPersona(cadFinal,photo)
+
+            binding.textMuestra.text = cadFinal
+
+            when (myIntent) {
+                "Andrew" -> prefs.saveAndrew(cadFinal)
+                "Matthew" -> prefs.saveMatthew(cadFinal)
+                "Dad" -> prefs.savePapa(cadFinal)
+                else -> prefs.saveMama(cadFinal)
+            }
+            Toast.makeText(this, "Guardado en $nameUser",Toast.LENGTH_SHORT).show()
+        }
     }
 
     // Andrew,10/10/2022,180,100,90,200,222,5.6
