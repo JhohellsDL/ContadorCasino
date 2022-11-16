@@ -203,19 +203,33 @@ class Datasource {
         return p
     }
     fun loadPersonas(): List<Persona> {
-        val a = prefs.getAndrew()
-        Log.d("dato","a: $a")
+        var andrew = prefs.getAndrew()
+        if (andrew == "no hay"){
+            andrew = "Andrew,10/10/2022,0,0,0,0,0,0"
+        }
+        var matthew = prefs.getMatthew()
+        if (matthew == "no hay"){
+            matthew = "Matthew,10/10/2022,0,0,0,0,0,0"
+        }
+        var mom = prefs.getMama()
+        if (mom == "no hay"){
+            mom = "Mom,10/10/2022,0,0,0,0,0,0"
+        }
+        var dad = prefs.getPapa()
+        if (dad == "no hay"){
+            dad = "Dad,10/10/2022,0,0,0,0,0,0"
+        }
 
-        val andrewString: String =  a //"Andrew,10/10/2022,180,100,90,200,222,5.6"
+        val andrewString: String =  andrew //"Andrew,10/10/2022,180,100,90,200,222,5.6"
         val andrewPhoto: Int = R.drawable.andrew
 
-        val matthewString: String = "Matthew,10/10/2022,180,100,90,200,222,5.6"
+        val matthewString: String = matthew //"Matthew,10/10/2022,180,100,90,200,222,5.6"
         val matthewPhoto: Int = R.drawable.matthew
 
-        val momString: String = "Mom,10/10/2022,180,100,90,200,222,5.6"
+        val momString: String = mom //"Mom,10/10/2022,180,100,90,200,222,5.6"
         val momPhoto: Int = R.drawable.mom
 
-        val dadString: String = "DAD,10/10/2022,180,100,90,200,222,5.6"
+        val dadString: String = dad //"DAD,10/10/2022,180,100,90,200,222,5.6"
         val dadPhoto: Int = R.drawable.dad
 
         val andrewPersona: Persona = stringToPersona(andrewString, andrewPhoto)
