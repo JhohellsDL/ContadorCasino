@@ -104,7 +104,7 @@ class ActividadesPositivas : AppCompatActivity() {
             cadFinal = sumarPersonas(personaDeLaVista, personaDeShared)
             val personaFinal: Persona = stringToPersona(cadFinal,photo)
 
-            binding.textMuestra.text = cadFinal
+            //binding.textMuestra.text = cadFinal
 
             when (myIntent) {
                 "Andrew" -> prefs.saveAndrew(cadFinal)
@@ -112,7 +112,7 @@ class ActividadesPositivas : AppCompatActivity() {
                 "Dad" -> prefs.savePapa(cadFinal)
                 else -> prefs.saveMama(cadFinal)
             }
-            Toast.makeText(this, "Guardado en $nameUser",Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "Guardado en $nameUser",Toast.LENGTH_SHORT).show()
         }
     }
 

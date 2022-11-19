@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/black"
     tools:context=".ActividadesPositivas">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +27,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/gradient1"/>
+            android:background="@drawable/gradient1_bottom"/>
 
         <TextView
             android:id="@+id/nameUser"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:textSize="38sp"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="62dp"
+            android:layout_marginBottom="72dp"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,14 +48,16 @@
             android:layout_marginStart="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nameUser"
-            android:text="asd"/>
-        <Button
+            tools:text="asd"/>
+        <ImageButton
             android:id="@+id/btnXd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="xd!"
+            android:background="@color/transparent"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_baseline_arrow_back"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/nameUser"/>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/linear_layout1"
@@ -100,8 +102,7 @@
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:layout_gravity="center"
+                    android:textAlignment="textEnd"
                     android:textColor="@color/white"
                     android:textSize="9sp"
                     android:text="Dinero ganado"/>
@@ -188,16 +189,17 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view1"
-            android:layout_width="160dp"
-            android:layout_height="40dp"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
-            app:cardCornerRadius="25dp"
-            android:layout_marginStart="16dp"
-            android:backgroundTint="@color/transparent"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/transparentWhite"
             app:cardPreventCornerOverlap="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnGuardarDatos"
                 android:layout_width="wrap_content"
@@ -205,6 +207,8 @@
                 android:background="@color/transparent"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
+                android:drawableTop="@drawable/ic_baseline_save"
+                android:textSize="10sp"
                 android:text="Guardar" />
         </androidx.cardview.widget.CardView>
 
@@ -213,7 +217,9 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="400dp"
         android:orientation="horizontal"
+        android:background="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -225,7 +231,11 @@
             android:layout_weight="1"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
             tools:listitem="@layout/list_card_actions"/>
-
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/listDivider" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_Negative"
             android:layout_width="wrap_content"
@@ -236,6 +246,8 @@
             app:layoutManager="LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
             tools:listitem="@layout/list_card_actions" />
+
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

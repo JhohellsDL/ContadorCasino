@@ -41,13 +41,13 @@ class ItemAdapter(
         ){
             photo.setImageResource(element.photoResourceId)
             textNombre.text = element.nombre
-            textFecha.text = element.fecha
+            textFecha.text = "Fecha:  ${element.fecha}"
             textPuntosPremio.text = element.puntosPremio.toString()
             textPuntosCastigo.text = element.puntosCastigo.toString()
             textPuntosJuego.text = element.puntosJuego.toString()
-            textPuntosAyer.text = element.puntosAyer.toString()
-            textPuntosHoy.text = element.puntosHoy.toString()
-            textDinero.text = element.dinero.toString()
+            textPuntosAyer.text = "Ayer ${element.puntosAyer} puntos"
+            textPuntosHoy.text = "Hoy ${element.puntosHoy} puntos"
+            textDinero.text = "S/. ${element.dinero}"
             itemView.setOnClickListener { onClickListener(element) }
         }
     }

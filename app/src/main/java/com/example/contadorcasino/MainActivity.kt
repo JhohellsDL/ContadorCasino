@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             ItemAdapter(this, onClickListener = { pasarDatos(it) }, myDataset)
         binding.recyclerView.setHasFixedSize(true)
 
-        binding.btnImagen.setOnClickListener {
+        binding.btnMostrarDatos.setOnClickListener {
             startAlertDialog()
         }
 
