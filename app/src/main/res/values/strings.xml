@@ -18,6 +18,7 @@
     <string name="positiveAction14">Jugar con Riley</string>
     <string name="positiveAction15">Lavarse los pies</string>
     <string name="positiveAction16">Llegar temprano</string>
+    <string name="positiveAction17">Hablar en ingles</string>
 
     <string name="negativeAction1">Cara fea</string>
     <string name="negativeAction2">Ser malo</string>
@@ -35,6 +36,8 @@
     <string name="negativeAction14">Hablar feo</string>
     <string name="negativeAction15">No lavarse los pies</string>
     <string name="negativeAction16">No llegar temprano</string>
+    <string name="negativeAction17">No hablar en ingles</string>
+
     <string name="dollar_simbol">S/. </string>
     <string name="monto_inicial_cero">0</string>
 

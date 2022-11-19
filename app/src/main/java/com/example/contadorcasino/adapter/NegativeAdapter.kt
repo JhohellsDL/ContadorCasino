@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contadorcasino.R
@@ -17,11 +18,15 @@ class NegativeAdapter(
 
     class NegativeViewHolder(view: View): RecyclerView.ViewHolder(view){
         private val txtStringNegative: TextView = view.findViewById(R.id.textStringPositive)
+        private val imageNegative: ImageView = view.findViewById(R.id.imageViewPositive)
+        private val textValorNegative: TextView = view.findViewById(R.id.textValorPositive)
         fun render(
             context: Context,
             element: NegativeAction,
             onClickListener: (NegativeAction) -> Unit
         ){
+            imageNegative.setImageResource(element.imageResource)
+            textValorNegative.text = (element.valor).toString()
             txtStringNegative.text = context.resources.getString(element.stringResourceId)
             itemView.setOnClickListener { onClickListener(element) }
         }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contadorcasino.R
@@ -17,11 +18,15 @@ class PositiveAdapter(
 
     class ItemViewHolderOk(view: View) : RecyclerView.ViewHolder(view) {
         private val txtStringPositive: TextView = view.findViewById(R.id.textStringPositive)
+        private val imagePositive: ImageView = view.findViewById(R.id.imageViewPositive)
+        private val textValorPositive: TextView = view.findViewById(R.id.textValorPositive)
         fun render(
             context: Context,
             elemento: PositiveAction,
             onClickListener: (PositiveAction) -> Unit
         ) {
+            imagePositive.setImageResource(elemento.imageResource)
+            textValorPositive.text = (elemento.valor).toString()
             txtStringPositive.text = context.resources.getText(elemento.stringResourceId)
             itemView.setOnClickListener { onClickListener(elemento) }
         }
