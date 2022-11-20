@@ -20,6 +20,7 @@ class PositiveAdapter(
         private val txtStringPositive: TextView = view.findViewById(R.id.textStringPositive)
         private val imagePositive: ImageView = view.findViewById(R.id.imageViewPositive)
         private val textValorPositive: TextView = view.findViewById(R.id.textValorPositive)
+        private val textContadorItem: TextView = view.findViewById(R.id.textContadorItem)
         fun render(
             context: Context,
             elemento: PositiveAction,

@@ -37,6 +37,9 @@ class MainActivity : AppCompatActivity() {
         binding.btnMostrarDatos.setOnClickListener {
             startAlertDialog()
         }
+        binding.btnEditarDatos.setOnClickListener {
+            goToAdministrarDatos()
+        }
 
         //binding.next.setOnClickListener { goToActividades() }
     }
@@ -95,6 +98,10 @@ class MainActivity : AppCompatActivity() {
         val cadena: String = "$andrew\n$matthew\n$mom\n$dad"
         val newFragment = StartGameDialogFragment(cadena)
         newFragment.show(supportFragmentManager, "game")
+    }
+
+    fun goToAdministrarDatos(){
+        startActivity(Intent(this, AdministrarDatosActivity::class.java))
     }
 
 }
