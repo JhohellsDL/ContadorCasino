@@ -32,13 +32,37 @@
             android:layout_height="match_parent"
             android:padding="12dp">
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnRestar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/transparent"
+                android:drawableStart="@drawable/ic_baseline_remove_circle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSumar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/transparent"
+                app:layout_constraintDimensionRatio="asdfasdf"
+                android:drawableStart="@drawable/ic_baseline_add_circle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageViewPositive"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/lavando_platos"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnRestar"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
