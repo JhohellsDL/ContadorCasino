@@ -74,6 +74,9 @@ class ActividadesPositivas : AppCompatActivity() {
 
         recyclerViewPositive.adapter = PositiveAdapter(
             context = this,
+            onClickActionResta = {
+                goToActividades()
+            },
             onClickAction = {
                 onItemPositiveSelected(it)
             },
@@ -83,6 +86,9 @@ class ActividadesPositivas : AppCompatActivity() {
 
         recyclerViewNegative.adapter = NegativeAdapter(
             context = this,
+            onClickActionResta = {
+                goToActividades()
+            },
             onClickAction = {
                 onItemNegativeSelected(it)
             },

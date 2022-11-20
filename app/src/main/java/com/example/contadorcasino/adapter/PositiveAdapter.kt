@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +14,7 @@ import com.example.contadorcasino.model.PositiveAction
 
 class PositiveAdapter(
     private val context: Context,
+    private val onClickActionResta: (PositiveAction) -> Unit,
     private val onClickAction: (PositiveAction) -> Unit,
     private val dataset: List<PositiveAction>
 ) : RecyclerView.Adapter<PositiveAdapter.ItemViewHolderOk>() {
@@ -21,14 +24,17 @@ class PositiveAdapter(
         private val imagePositive: ImageView = view.findViewById(R.id.imageViewPositive)
         private val textValorPositive: TextView = view.findViewById(R.id.textValorPositive)
         private val textContadorItem: TextView = view.findViewById(R.id.textContadorItem)
+        private val btnRestar: ImageButton = view.findViewById(R.id.btnRestar)
         fun render(
             context: Context,
             elemento: PositiveAction,
+            onClickListenerRestar: (PositiveAction) -> Unit,
             onClickListener: (PositiveAction) -> Unit
         ) {
             imagePositive.setImageResource(elemento.imageResource)
             textValorPositive.text = (elemento.valor).toString()
             txtStringPositive.text = context.resources.getText(elemento.stringResourceId)
+            btnRestar.setOnClickListener { onClickListenerRestar(elemento) }
             itemView.setOnClickListener { onClickListener(elemento) }
         }
     }
@@ -43,7 +49,7 @@ class PositiveAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolderOk, position: Int) {
         val item = dataset[position]
-        holder.render(context, item, onClickAction)
+        holder.render(context, item, onClickActionResta, onClickAction)
     }
 
     override fun getItemCount() = dataset.size
