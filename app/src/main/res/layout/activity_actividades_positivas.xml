@@ -237,7 +237,6 @@
             android:layout_height="wrap_content"
             android:padding="4dp"
             android:layout_weight="1"
-            android:scrollbars="vertical"
             app:layoutManager="LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
             tools:listitem="@layout/list_card_actions" />
