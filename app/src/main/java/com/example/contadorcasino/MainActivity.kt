@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
 
         val myDataset = Datasource().loadPersonas() //Datasource().loadPersonas()
         //val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+
+        /*
         binding.recyclerView.adapter =
             ItemAdapter(this, onClickListener = { pasarDatos(it) }, myDataset)
         binding.recyclerView.setHasFixedSize(true)
@@ -39,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnEditarDatos.setOnClickListener {
             goToAdministrarDatos()
-        }
+        }*/
 
         //binding.next.setOnClickListener { goToActividades() }
     }
