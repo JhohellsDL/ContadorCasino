@@ -1,10 +1,14 @@
-package com.example.contadorcasino
+package com.example.contadorcasino.registroactividades
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.contadorcasino.GuardarDatos.Companion.prefs
+import com.example.contadorcasino.MainActivity
+import com.example.contadorcasino.R
 import com.example.contadorcasino.adapter.NegativeAdapter
 import com.example.contadorcasino.adapter.PositiveAdapter
 import com.example.contadorcasino.data.Datasource
@@ -15,7 +19,9 @@ import com.example.contadorcasino.model.PositiveAction
 
 class ActividadesPositivas : AppCompatActivity() {
 
+    private lateinit var viewModel : RegistroActividadesViewModel
     private lateinit var binding: ActivityActividadesPositivasBinding
+
     private var increase: Int = 0
     private var decrease: Int = 0
     private var totalPoints: Int = 0
@@ -28,6 +34,25 @@ class ActividadesPositivas : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityActividadesPositivasBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //-------------------------------llamada al view model -------------------------------------------------------------------------------
+        viewModel = ViewModelProvider(this)[RegistroActividadesViewModel::class.java]
+        Log.i("viewmodel","view model llamado!!")
+
+        viewModel.ptsGanados.observe(this, Observer {
+            binding.puntosGanados.text = it.toString()
+        })
+        viewModel.ptsPerdidos.observe(this, Observer {
+            binding.puntosPerdidos.text = it.toString()
+        })
+        viewModel.ptsTotal.observe(this, Observer {
+            binding.puntosTotalGanados.text = it.toString()
+        })
+        viewModel.dineroTotal.observe(this, Observer {
+            binding.valorEnDinero.text = it.toString()
+        })
+
+        //------------------------------------------------------------------------------------------------------------------------------------
 
         val myPositiveDataset = Datasource().loadPositiveActions()
         val myNegativeDataset = Datasource().loadNegativeActions()
@@ -78,7 +103,8 @@ class ActividadesPositivas : AppCompatActivity() {
                 goToActividades()
             },
             onClickAction = {
-                onItemPositiveSelected(it)
+                Log.i("viewmodel","click1!!")
+                viewModel.onItemPositiveSelected(it)
             },
             dataset = myPositiveDataset
         )
@@ -90,7 +116,7 @@ class ActividadesPositivas : AppCompatActivity() {
                 goToActividades()
             },
             onClickAction = {
-                onItemNegativeSelected(it)
+                viewModel.onItemNegativeSelected(it)
             },
             dataset = myNegativeDataset
         )
@@ -166,7 +192,7 @@ class ActividadesPositivas : AppCompatActivity() {
     }
 
     // 0.025 by point
-    fun onItemNegativeSelected(elementolista: NegativeAction) {
+    fun onItemNegativeSelected1(elementolista: NegativeAction) {
         decrease += elementolista.valor
         totalPoints -= elementolista.valor
         money = (totalPoints*0.025f)
@@ -175,7 +201,7 @@ class ActividadesPositivas : AppCompatActivity() {
         binding.puntosTotalGanados.text = "$totalPoints"
         binding.puntosPerdidos.text = "$decrease"
     }
-    fun onItemPositiveSelected(elementolista: PositiveAction) {
+    fun onItemPositiveSelected1(elementolista: PositiveAction) {
         increase += elementolista.valor
         totalPoints += elementolista.valor
         money = (totalPoints*0.025f)

@@ -16,7 +16,7 @@
     </fragment>
     <activity
         android:id="@+id/actividadesPositivas"
-        android:name="com.example.contadorcasino.ActividadesPositivas"
+        android:name="com.example.contadorcasino.registroactividades.ActividadesPositivas"
         android:label="activity_actividades_positivas"
         tools:layout="@layout/activity_actividades_positivas" />
 </navigation>

@@ -1,23 +1,14 @@
 package com.example.contadorcasino
 
-import android.app.AlertDialog
-import android.app.Dialog
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContracts.*
-import androidx.fragment.app.DialogFragment
 import com.example.contadorcasino.GuardarDatos.Companion.prefs
-import com.example.contadorcasino.adapter.ItemAdapter
 import com.example.contadorcasino.data.Datasource
 import com.example.contadorcasino.databinding.ActivityMainBinding
 import com.example.contadorcasino.model.Persona
 import com.example.contadorcasino.model.StartGameDialogFragment
-import kotlinx.coroutines.NonCancellable.start
+import com.example.contadorcasino.registroactividades.ActividadesPositivas
 
 class MainActivity : AppCompatActivity() {
 
