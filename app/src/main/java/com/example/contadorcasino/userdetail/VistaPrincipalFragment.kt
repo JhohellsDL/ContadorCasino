@@ -32,6 +32,8 @@ class VistaPrincipalFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentVistaPrincipalBinding.inflate(inflater)
 
+        binding.lifecycleOwner = this
+
 
         //--------------------------------- AMBOS FUNCIONAN PARA LA NAVEGACION --------------------------------------------------------------
         /*binding.button.setOnClickListener { view: View ->

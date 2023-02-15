@@ -1,13 +1,20 @@
 package com.example.contadorcasino.registroactividades
 
+import android.app.Application
 import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.room.RoomDatabase
+import com.example.contadorcasino.database.HijosDataBaseDao
 import com.example.contadorcasino.model.NegativeAction
 import com.example.contadorcasino.model.PositiveAction
 
-class RegistroActividadesViewModel: ViewModel() {
+class RegistroActividadesViewModel(
+    val database: HijosDataBaseDao,
+    application: Application
+): AndroidViewModel(application) {
 
     private var _ptsGanados = MutableLiveData<Int>()
     val ptsGanados: LiveData<Int>

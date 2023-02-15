@@ -12,6 +12,7 @@ import com.example.contadorcasino.R
 import com.example.contadorcasino.adapter.NegativeAdapter
 import com.example.contadorcasino.adapter.PositiveAdapter
 import com.example.contadorcasino.data.Datasource
+import com.example.contadorcasino.database.HijosDataBase
 import com.example.contadorcasino.databinding.ActivityActividadesPositivasBinding
 import com.example.contadorcasino.model.NegativeAction
 import com.example.contadorcasino.model.Persona
@@ -33,11 +34,17 @@ class ActividadesPositivas : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityActividadesPositivasBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
+
+        val application = requireNotNull(this).application
+        val datasource = HijosDataBase.getInstance(application).hijosDataBaseDao
+        val viewModelFactory = RegistroActividadesViewModelFactory(datasource, application)
 
         //-------------------------------llamada al view model -------------------------------------------------------------------------------
-        viewModel = ViewModelProvider(this)[RegistroActividadesViewModel::class.java]
+        viewModel = ViewModelProvider(this, viewModelFactory)[RegistroActividadesViewModel::class.java]
         Log.i("viewmodel","view model llamado!!")
+
+
 
         viewModel.ptsGanados.observe(this, Observer {
             binding.puntosGanados.text = it.toString()
@@ -52,6 +59,10 @@ class ActividadesPositivas : AppCompatActivity() {
             binding.valorEnDinero.text = it.toString()
         })
 
+        binding.registroActividadesViewModel = viewModel
+        binding.lifecycleOwner = this
+
+        setContentView(binding.root)
         //------------------------------------------------------------------------------------------------------------------------------------
 
         val myPositiveDataset = Datasource().loadPositiveActions()
@@ -191,25 +202,6 @@ class ActividadesPositivas : AppCompatActivity() {
         return p
     }
 
-    // 0.025 by point
-    fun onItemNegativeSelected1(elementolista: NegativeAction) {
-        decrease += elementolista.valor
-        totalPoints -= elementolista.valor
-        money = (totalPoints*0.025f)
-
-        binding.valorEnDinero.text = "$money"
-        binding.puntosTotalGanados.text = "$totalPoints"
-        binding.puntosPerdidos.text = "$decrease"
-    }
-    fun onItemPositiveSelected1(elementolista: PositiveAction) {
-        increase += elementolista.valor
-        totalPoints += elementolista.valor
-        money = (totalPoints*0.025f)
-
-        binding.valorEnDinero.text = "$money"
-        binding.puntosTotalGanados.text = "$totalPoints"
-        binding.puntosGanados.text = "$increase"
-    }
     fun goToActividades(){
         startActivity(Intent(this, MainActivity::class.java))
     }
